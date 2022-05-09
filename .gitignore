@@ -1,0 +1,13 @@
+*.pyc
+*notebooks/
+*.ipynb
+*data/
+*.vscode
+*.spyproject
+*.DS_Store
+scripts/not_required/*
+scripts/todo/*
+data/*
+*.env
+paths.txt
+scripts/*
