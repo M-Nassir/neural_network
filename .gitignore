@@ -10,4 +10,5 @@ scripts/todo/*
 data/*
 *.env
 paths.txt
-scripts/*
+scripts/not_required/*
+scripts/todo/*
