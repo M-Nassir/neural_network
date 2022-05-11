@@ -186,7 +186,7 @@ report_acc_over_neurons(
     y_axis_label="AUC score", x_axis_label="Number of neurons",
     n_runs=1, n_neurons=500,
     min_c=min_c, max_c=max_c,
-    save_path=image_save_path + 'ex8data2_n_neurons.png')
+    save_path=image_save_path + 'ex8data2_n_neurons_extreme.png')
 
 # %% AUC scores over number of neurons - extreme
 report_acc_over_subsamples(
@@ -195,4 +195,4 @@ report_acc_over_subsamples(
     y_axis_label="AUC score", x_axis_label="Subsample size",
     n_runs=1, n_neurons=n_neurons, n_connections=250,
     min_c=min_c, max_c=max_c,
-    save_path=image_save_path + 'ex8data2_subsample_size.png')
+    save_path=image_save_path + 'ex8data2_subsample_size_extreme.png')
