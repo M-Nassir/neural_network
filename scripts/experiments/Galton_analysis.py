@@ -16,7 +16,7 @@ import pandas as pd
 image_save_switch = False
 
 # %%
-with open('../paths.txt') as f:
+with open('../../paths.txt') as f:
     image_save_path = f.readline()
     image_save_path = image_save_path[:-1]
     print(image_save_path)
@@ -27,7 +27,7 @@ max_c = 1000
 n_neurons = 256
 
 # %% Read Galton heights
-galton_height_path = "../data/Galton.txt"
+galton_height_path = "../../data/Galton.txt"
 g_df = pd.read_csv(galton_height_path, sep='\t', lineterminator='\r')
 data = g_df['Height'].values
 
