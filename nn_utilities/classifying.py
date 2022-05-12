@@ -297,39 +297,3 @@ def highlight_rows_max_min(df_, col_agg):
             df.loc[index] != agg, "\\textbf{%s}" % agg)
 
     return df
-
-# %%
-
-
-# for row in df_f1.index:
-#     print(f'Max element of row {row} is:', max(df_f1.iloc[row]))
-#     break
-
-# %%
-
-
-# bold = df_f1.apply(lambda x: "\\textbf{%s}" % x, axis=1)
-
-# max_in_rows = df_f1.max(axis=1)
-
-# df = df_f1.drop(['Dataset'], axis=1)
-
-# for index, row in df.iterrows():
-#     # print(df.iloc[row])
-#     maximum = max(row)
-#     print(maximum)
-
-#     # df_f2.loc[row] = df.iloc[row].where(df.iloc[row] != maximum, "\\textbf{%s}")
-#     df_f1.loc[index] = df_f1.loc[index].where(
-#         df_f1.loc[index] != maximum, "\\textbf{%s}" % maximum)
-
-
-# %%
-# for index, row in df_f1.iterrows():
-#     bolded = df_f1.apply(lambda x: "\\textbf{%s}" % x)
-
-#     df_f1.iloc[[index]] = df_f1.iloc[[index]].where(
-#         df_f1.iloc[[index]] != 0.618, bolded)
-
-#     print(df_f1.iloc[[index]].max(axis=1))
-#     break
