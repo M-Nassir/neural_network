@@ -162,7 +162,7 @@ def apply_classifiers(classifiers, dataset_name,
     # run the classifiers over the data and produce results
     for clf_name in classifiers:
 
-        print('current classifier in progress: {}'.format(clf_name))
+        print('classifier in progress: {}'.format(clf_name))
 
         if ((dataset_name == "http") and (clf_name == "OCSVM")):
             continue  # takes too long to run
@@ -178,10 +178,11 @@ def apply_classifiers(classifiers, dataset_name,
             # initialise classifier
             clf, init_time = call_init_classifier(clf_name)
 
-            # fit classifier
+            # fit classifier (predict not required)
             labels, train_time = call_fit(clf, clf_name, predict_data)
             scores = None
             predict_time = 0
+
         else:
             # initialise classifier
             clf, init_time = call_init_classifier(clf_name, train_data)
@@ -199,7 +200,6 @@ def apply_classifiers(classifiers, dataset_name,
         print("total run time: {}".format(total_time))
 
         if clf_name == 'NeuralNetwork':
-            print(dataset_name)
             print("data size: {}".format(len(train_data)))
             print("total data samples used: {}".format(
                 clf.l0_l1_sum_connections_))
@@ -236,7 +236,7 @@ def apply_classifiers(classifiers, dataset_name,
         metrics_df = pd.concat([metrics_df, metrics_temp]
                                ).reset_index(drop=True)
 
-    # remove the first row due to timing issues
+    # remove the first row due to timing issues it is duplicated
     metrics_df = metrics_df.iloc[1:]
 
     return metrics_df
@@ -278,3 +278,58 @@ def highlight_max_min(df_, col_show_max):
             df[col] = df[col].where(df[col] != minimum, bolded)
 
     return df
+
+
+def highlight_rows_max_min(df_, col_agg):
+
+    df = df_.copy()
+
+    df_temp = df.drop(['Dataset'], axis=1)
+
+    for index, row in df_temp.iterrows():
+
+        if col_agg is True:
+            agg = max(row)
+        else:
+            agg = min(row)
+
+        df.loc[index] = df.loc[index].where(
+            df.loc[index] != agg, "\\textbf{%s}" % agg)
+
+    return df
+
+# %%
+
+
+# for row in df_f1.index:
+#     print(f'Max element of row {row} is:', max(df_f1.iloc[row]))
+#     break
+
+# %%
+
+
+# bold = df_f1.apply(lambda x: "\\textbf{%s}" % x, axis=1)
+
+# max_in_rows = df_f1.max(axis=1)
+
+# df = df_f1.drop(['Dataset'], axis=1)
+
+# for index, row in df.iterrows():
+#     # print(df.iloc[row])
+#     maximum = max(row)
+#     print(maximum)
+
+#     # df_f2.loc[row] = df.iloc[row].where(df.iloc[row] != maximum, "\\textbf{%s}")
+#     df_f1.loc[index] = df_f1.loc[index].where(
+#         df_f1.loc[index] != maximum, "\\textbf{%s}" % maximum)
+
+
+# %%
+# for index, row in df_f1.iterrows():
+#     bolded = df_f1.apply(lambda x: "\\textbf{%s}" % x)
+
+#     df_f1.iloc[[index]] = df_f1.iloc[[index]].where(
+#         df_f1.iloc[[index]] != 0.618, bolded)
+
+#     print(df_f1.iloc[[index]].max(axis=1))
+#     break
