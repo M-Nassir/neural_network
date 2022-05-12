@@ -1,13 +1,12 @@
 *.pyc
 *notebooks/
 *.ipynb
-*data/
+data/ODDS_multivariate/credit-card.csv
 *.vscode
 *.spyproject
 *.DS_Store
 scripts/not_required/*
 scripts/todo/*
-data/*
 *.env
 paths.txt
 scripts/not_required/*
