@@ -138,6 +138,7 @@ class Neural_network:
         for each example. (Same as anomaly_sum_l2_)
     """
 
+    # TODO: remove n0 parameter and place functionality and checks into fit()
     def __init__(self, n0,
                  n1=256,
                  min_n_connections=10,
