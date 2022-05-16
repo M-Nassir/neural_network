@@ -1,7 +1,7 @@
 Neural Network for Anomaly Detection
 
 This project contains the prototypical implemenation of the neural network described in the paper "A Vision Inspired Neural Network for Unsupervised Anomaly Detection in Unordered Data" 
-that can be found at: xxx
+that can be found at: http://arxiv.org/abs/2205.06716
 
 The neural network detects global anomalies in univariate and multivariate data practically parameter-free! Just give it the standardised data as a numpy array and it will return
 the label (normal or anomalous) of each example. The network also gives each example a score that is more useful for ranking anomalies, and for further analysis and investigation.
